@@ -17,7 +17,7 @@ function App() {
                             Employee Management System
                         </span>
                         <span className="text-light">
-                            Spring Boot + React CRUD 
+                            Spring Boot + React 
                         </span>
                     </Container>
                 </nav>
@@ -31,8 +31,7 @@ function App() {
                 <footer className="mt-5 py-3 bg-light text-center">
                     <Container>
                         <p className="mb-0 text-muted">
-                            © 2025 Employee Management System. Backend running at: 
-                            <code className="ms-1">http://localhost:8080</code>
+                            © 2026 Employee Management System. 
                     </p>
                 </Container>
             </footer>

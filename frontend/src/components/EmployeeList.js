@@ -89,7 +89,7 @@ const EmployeeList = () => {
     return (
         <div className="container mt-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h2>Mycrosoft Employee Management System</h2>
+                <h2>Employee List</h2>
                 <Button variant="primary" onClick={handleAdd}>
                     <i className="fa fa-plus me-2"></i> <strong>Add Employee</strong>
                 </Button>
@@ -128,7 +128,9 @@ const EmployeeList = () => {
                             ) : (
                                 employees.map(employee => (
                                     <tr key={employee.id} className='text-center'>
-                                        <td>{employee.id}</td>
+                                        <td>
+                                            {`EMP${employee.id.slice(-5).toUpperCase()}`}
+                                        </td>
                                         <td>{employee.name}</td>
                                         <td>{employee.email}</td>
                                         <td>
@@ -137,37 +139,34 @@ const EmployeeList = () => {
                                             </span>
                                         </td>
                                         <td>
-                                            {employee.salary ? 
-                                                `$${parseFloat(employee.salary).toLocaleString('en-US', {
-                                                    minimumFractionDigits: 2,
-                                                    maximumFractionDigits: 2
-                                                })}` : 
-                                                'N/A'}
-                                        </td>
+    {employee.salary
+        ? `${(employee.salary / 100000).toFixed(1)} LPA`
+        : 'N/A'}
+</td>
                                         <td>{formatDate(employee.hireDate)}</td>
                                         <td>
                                             <Button 
                                                 variant="info" 
                                                 size="sm" 
-                                                className="me-2"
+                                                className="me-2 btn-sm"
                                                 onClick={() => handleView(employee)}
                                             >
-                                                <i className="bi bi-eye"></i> View
+                                                <i className="fas fa-eye"></i>
                                             </Button>
                                             <Button 
                                                 variant="warning" 
                                                 size="sm" 
-                                                className="me-2"
+                                                className="me-2 btn-sm"
                                                 onClick={() => handleEdit(employee)}
                                             >
-                                                <i className="bi bi-pencil"></i> Edit
+                                                <i className="fas fa-pencil"></i>
                                             </Button>
-                                            <Button 
+                                            <Button className="btn-sm"
                                                 variant="danger" 
                                                 size="sm"
                                                 onClick={() => handleDelete(employee.id)}
                                             >
-                                                <i className="bi bi-trash"></i> Delete
+                                                <i className="fas fa-trash"></i>
                                             </Button>
                                         </td>
                                     </tr>
