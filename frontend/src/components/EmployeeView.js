@@ -43,7 +43,7 @@ const EmployeeView = ({ employee }) => {
                 <Row className="mb-4">
                     <Col md={8}>
                         <h3>Name: {employee.name}</h3>
-                        <p className="text-muted">Employee ID: #{employee.id}</p>
+                        <p className="text-muted">Employee ID: {`EMP${employee.id.slice(-5).toUpperCase()}`}</p>
                     </Col>
                     <Col md={4} className="text-end">
                         <Badge bg={getDepartmentColor(employee.department)} className="fs-6 p-2">
