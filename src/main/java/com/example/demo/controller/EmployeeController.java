@@ -10,7 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"})
+
+// ✅ FINAL FIX: allow frontend + production
+@CrossOrigin(origins = "*")
 public class EmployeeController {
 
     private final EmployeeService service;
@@ -19,13 +21,13 @@ public class EmployeeController {
         this.service = service;
     }
 
-    // GET ALL
+    // GET ALL EMPLOYEES
     @GetMapping
     public ResponseEntity<List<Employee>> getAllEmployees() {
         return ResponseEntity.ok(service.getAllEmployees());
     }
 
-    // GET BY ID
+    // GET EMPLOYEE BY ID
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable String id) {
         return service.getEmployeeById(id)
@@ -33,14 +35,14 @@ public class EmployeeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // CREATE
+    // CREATE EMPLOYEE
     @PostMapping
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         Employee saved = service.saveEmployee(employee);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
-    // UPDATE
+    // UPDATE EMPLOYEE
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(
             @PathVariable String id,
@@ -51,7 +53,7 @@ public class EmployeeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE
+    // DELETE EMPLOYEE
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable String id) {
         service.deleteEmployee(id);
