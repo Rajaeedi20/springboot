@@ -85,8 +85,8 @@ const EmployeeView = ({ employee }) => {
                 <div className="mt-4 p-3 bg-light rounded">
                     <h6>Quick Actions</h6>
                     <p className="mb-0 text-muted small">
-                        Employee ID: {employee.id} | 
-                        Status: <span className="text-success">Active</span>
+                        Employee ID: {`EMP${employee.id.slice(-5).toUpperCase()}`} | 
+                        Status: <span className="text-success fw-bold">Active</span>
                     </p>
                 </div>
             </Card.Body>
