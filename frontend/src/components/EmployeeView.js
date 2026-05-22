@@ -74,7 +74,9 @@ const EmployeeView = ({ employee }) => {
                         <div className="mb-3">
                             <h6 className="text-muted">Financial Information</h6>
                             <p className="mb-1">
-                                <strong>Salary:</strong> {formatCurrency(employee.salary)}
+                                <strong>Salary:</strong> {employee.salary
+        ? `${(employee.salary / 100000).toFixed(1)} LPA`
+        : 'N/A'}
                             </p>
                         </div>
                     </Col>
