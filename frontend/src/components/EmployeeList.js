@@ -109,7 +109,8 @@ const EmployeeList = () => {
                     <Table striped bordered hover className="shadow-sm">
                         <thead className="table-dark">
                             <tr className='text-center'>
-                                <th><strong>ID</strong></th>
+                                <th><strong>S.No</strong></th>
+                                <th><strong>Employee ID</strong></th>
                                 <th><strong>Name</strong></th>
                                 <th><strong>Email</strong></th>
                                 <th><strong>Department</strong></th>
@@ -126,8 +127,11 @@ const EmployeeList = () => {
                                     </td>
                                 </tr>
                             ) : (
-                                employees.map(employee => (
+                                employees.map((employee, index) => (
                                     <tr key={employee.id} className='text-center'>
+                                    <td>
+  {`${index + 1}`}
+</td>
                                         <td>
                                             {`EMP${employee.id.slice(-5).toUpperCase()}`}
                                         </td>
