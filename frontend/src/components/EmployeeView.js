@@ -6,14 +6,7 @@ const EmployeeView = ({ employee }) => {
         return <div className="text-center">No employee data available</div>;
     }
 
-    const formatCurrency = (amount) => {
-        if (!amount) return 'N/A';
-        return new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 2
-        }).format(amount);
-    };
+    
 
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
