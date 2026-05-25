@@ -89,7 +89,7 @@ const EmployeeList = () => {
     return (
         <div className="container mt-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h2>Employee</h2>
+                <h2>Employee asdasdasfsadfsad</h2>
                 <Button variant="primary" onClick={handleAdd}>
                     <i className="fa fa-plus me-2"></i> <strong>Add Employee</strong>
                 </Button>
